@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/043e51ac62.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+     
+    <title>Employees | TIQQE</title>
+</head>
+<body>
+    <nav class="topmenu">
+        <div class="container d-flex justify-content-space-between" >
+            <img width="137" height="24" src="Images/logo.png" alt="Tiqqe logo">          
+        </div>
+    </nav>
+    <div class="container main">
+        <div class="my-5">
+            <div class="container">
+               
+                    <div class="header">
+                        <h2>Add employee</21>
+                    </div>
+                
+                <form class="row g-3 needs-validation" novalidate>
+                    <div class="form-group col-md-3">
+                      <label for="validationCustom01" class="form-label">First name</label>
+                      <input type="text" class="form-control" id="firstname" value="" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="validationCustom02" class="form-label">Last name</label>
+                      <input type="text" class="form-control" id="lastname" value="" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="validationCustomUsername" class="form-label">Email</label>
+                      <div class="input-group has-validation">                   
+                        <input type="email" class="form-control" id="email" required>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="form-label">Employee Id</label>
+                      <input type="number" class="form-control" id="employeeId" value="" required>
+                    </div>
+                    
+                    <div class="addbtn">
+                      <button class="btn" type="button" onclick="addEmployee()">Add</button>
+                    </div>
+                </form>
+
+                <h2 class="regheader">Registered employees</h2>
+                <div id="employees">
+
+                </div>
+
+                
+            </div>   
+        </div>
+    </div>
+            
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script type="text/javascript">
+
+    function addEmployee()
+    {
+
+      var firstname = document.getElementById("firstname").value;
+      var lastname = document.getElementById("lastname").value;
+      var email = document.getElementById("email").value;
+      var employeeId = document.getElementById("employeeId").value;
+      var api= "Klistra här i api:ets URL på POST-metoden"
+
+      var params = {
+        "firstname":firstname,
+        "lastname":lastname,
+        "email":email,
+        "employeeId":employeeId
+
+      };
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          alert(xhttp.responseText);
+        }        
+      };
+      
+      xhttp.open("POST", api, false);
+      var a= xhttp.send(JSON.stringify(params));
+      document.getElementById("firstname").value = '';
+      document.getElementById("lastname").value = '';
+      document.getElementById("email").value = '';
+      document.getElementById("employeeId").value = '';
+
+    };
+    
+    </script>
+    
+</body>
+</html>
