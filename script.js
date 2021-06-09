@@ -30,6 +30,9 @@ async function submitEmployee() {
         console.log(response);
         document.getElementById("employees").innerHTML += "<p>"+email+"</p>"; // Add new employee's email list
         // document.getElementById("messages").innerHTML += "<p>"+email+"</p>"; // Add firstname & lastname to list
+        $("#form")[0].reset();
     });
 }
 getAllEmployees(); // Calls the function on load
+
+$("#form")[0].reset();
