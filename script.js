@@ -6,8 +6,11 @@ async function getAllEmployees() {
     .then((response) => {
         console.log(response.body);
         response.body.forEach(element => {
-            document.getElementById("employees").innerHTML += "<p>"+element.email+"</p>"; // Adds employee's email to the div
-            // document.getElementById("employees").innerHTML += "<p>"+element.firstname+ "</p>", "<p>"+element.lastname+"</p>" ; // Adds each employees lastname & firstname to div
+            document.getElementById("employeesFirstname").innerHTML += "<p>"+element.firstname+"</p>"; // Adds employee's firstname to the div
+            document.getElementById("employeesLastname").innerHTML += "<p>"+element.lastname+"</p>"; // Adds employee's firstname to the div
+            document.getElementById("employeesEmail").innerHTML += "<p>"+element.email+"</p>"; // Adds employee's email to the div
+            document.getElementById("employeesId").innerHTML += "<p>"+element.employeeId+"</p>"; // Adds employee's email to the div
+            
         });
     });
 }
@@ -28,11 +31,12 @@ async function submitEmployee() {
     .then(response => response.json())
     .then((response) => {
         console.log(response);
-        document.getElementById("employees").innerHTML += "<p>"+email+"</p>"; // Add new employee's email list
-        // document.getElementById("messages").innerHTML += "<p>"+email+"</p>"; // Add firstname & lastname to list
+        document.getElementById("employeesFirstname").innerHTML += "<p>"+element.firstname+"</p>"; // Adds employee's firstname to the div
+        document.getElementById("employeesLastname").innerHTML += "<p>"+element.lastname+"</p>"; // Adds employee's firstname to the div
+        document.getElementById("employeesEmail").innerHTML += "<p>"+element.email+"</p>"; // Adds employee's email to the div
+        document.getElementById("employeesId").innerHTML += "<p>"+element.employeeId+"</p>"; // Adds employee's email to the div
         $("#form")[0].reset();
     });
 }
 getAllEmployees(); // Calls the function on load
 
-$("#form")[0].reset();
