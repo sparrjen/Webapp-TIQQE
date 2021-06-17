@@ -7,9 +7,9 @@ async function getAllEmployees() {
         console.log(response.body);
         response.body.forEach(element => {
             document.getElementById("employeesFirstname").innerHTML += "<p>"+element.firstname+"</p>"; // Adds employee's firstname to the div
-            document.getElementById("employeesLastname").innerHTML += "<p>"+element.lastname+"</p>"; // Adds employee's firstname to the div
+            document.getElementById("employeesLastname").innerHTML += "<p>"+element.lastname+"</p>"; // Adds employee's lasttname to the div
             document.getElementById("employeesEmail").innerHTML += "<p>"+element.email+"</p>"; // Adds employee's email to the div
-            document.getElementById("employeesId").innerHTML += "<p>"+element.employeeId+"</p>"; // Adds employee's email to the div
+            document.getElementById("employeesId").innerHTML += "<p>"+element.employeeId+"</p>"; // Adds employee's employeeId to the div
             
         });
     });
@@ -31,12 +31,14 @@ async function submitEmployee() {
     .then(response => response.json())
     .then((response) => {
         console.log(response);
-        document.getElementById("employeesFirstname").innerHTML += "<p>"+element.firstname+"</p>"; // Adds employee's firstname to the div
-        document.getElementById("employeesLastname").innerHTML += "<p>"+element.lastname+"</p>"; // Adds employee's firstname to the div
+        document.getElementById("employeesFirstname").innerHTML += "<p>"+element.firstname+"</p>";  // Adds employee's firstname to the div
+        document.getElementById("employeesLastname").innerHTML += "<p>"+element.lastname+"</p>"; // Adds employee's lastname to the div
         document.getElementById("employeesEmail").innerHTML += "<p>"+element.email+"</p>"; // Adds employee's email to the div
-        document.getElementById("employeesId").innerHTML += "<p>"+element.employeeId+"</p>"; // Adds employee's email to the div
+        document.getElementById("employeesId").innerHTML += "<p>"+element.employeeId+"</p>"; // Adds employee's employeeId to the div
         $("#form")[0].reset();
     });
 }
+
 getAllEmployees(); // Calls the function on load
+
 

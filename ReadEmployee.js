@@ -27,7 +27,7 @@ exports.handler = async (event, context, callback) => {
 };
 
 // Function readEmployee
-// Reads 10 messages from the DynamoDb table Message
+// Reads 100 employees from the DynamoDb table Employee
 // Returns promise
 function readEmployee() {
     const params = {

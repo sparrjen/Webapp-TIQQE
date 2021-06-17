@@ -1,0 +1,1 @@
+//Lambda function for deleting employee and sending to DynamoDb
